@@ -73,7 +73,7 @@ class CashCalculator(Calculator):
         currency_type = currency
         # Эту строку можно убрать, изменив условия сравнения
         cash_remained = self.limit - self.get_today_stats()
-        # Слишком много условий, нужно упростить и сделать универсальнее
+        # Слишком много условий elif, нужно упростить и сделать универсальнее
         if currency == 'usd':
             cash_remained /= USD_RATE
             currency_type = 'USD'
@@ -84,6 +84,7 @@ class CashCalculator(Calculator):
             # Неверное значение переменной, в рублях всегда будет 1
             cash_remained == 1.00
             currency_type = 'руб'
+
         # Лучше вставить пустую строку, для увеличения читабельности
         if cash_remained > 0:
             return (
